@@ -1,0 +1,42 @@
+<html>
+<head>
+  <title>Simple Leaflet Map for ANP412 Workshop</title>
+
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+     crossorigin=""/>
+
+     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin="">
+   </script>
+
+  <style>
+
+
+    #mysupermap{ width: 900px; height: 500px; }
+  </style>
+</head>
+<body>
+
+  <!-- this section creates the container where the map will be displayed.  The size of the container is determined by the style above -->
+  <div id="mysupermap"></div>
+
+  <script>
+
+  // this section initiailizes the map.  Make sure the name of the map matches what you set above. setView determines where in the world the map will load.  Enter lat and long, as well as the initial zoom level.  A higher zoom level means it will be more zoomed in.
+var map = L.map('mysupermap').setView([51.4829377,-0.2420245], 12);
+
+// This section loads the map tiles from the specific provider into the containter you created
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+
+// maxZoom determines how close you can zoom into the map.  The higher the number, the more you can zoom in
+		maxZoom: 19,
+//this section puts the attribution info for the tiles the map data in the bottom right hand corner of the map container
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(map);
+
+  </script>
+</body>
+</html>
